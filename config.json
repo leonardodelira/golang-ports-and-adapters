@@ -1,0 +1,8 @@
+{
+  "database": {
+    "url": "://root:docker@localhost:5432/golang_todo"
+  },
+  "server": {
+    "port": "3000"
+  }
+}
