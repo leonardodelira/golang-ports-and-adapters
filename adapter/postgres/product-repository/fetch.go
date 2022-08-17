@@ -3,10 +3,9 @@ package productrepository
 import (
 	"context"
 	"go/cleanarch/core/domain"
-	"go/cleanarch/core/dto"
 )
 
-func (repository repository) Fetch(pagination *dto.PaginationRequestParms) (*domain.Pagination[[]domain.Product], error) {
+func (repository repository) Fetch() (*domain.Pagination[[]domain.Product], error) {
     ctx := context.Background()
     products := []domain.Product{}
     total := int32(0)

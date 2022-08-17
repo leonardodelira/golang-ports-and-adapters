@@ -30,13 +30,7 @@ func main() {
 
 	router := mux.NewRouter()
 	router.Handle("/product", http.HandlerFunc(productService.Create)).Methods("POST")
-	router.Handle("/product", http.HandlerFunc(productService.Fetch)).Queries(
-			"page", "{page}",
-			"itemsPerPage", "{itemsPerPage}",
-			"descending", "{descending}",
-			"sort", "{sort}",
-			"search", "{search}",
-	).Methods("GET")
+	router.Handle("/product", http.HandlerFunc(productService.Fetch)).Methods("GET")
 
 	port := viper.GetString("server.port")
 	log.Printf("LISTEN ON PORT: %v", port)
