@@ -10,7 +10,10 @@ func (repository repository) Fetch() (*domain.Pagination[[]domain.Product], erro
     products := []domain.Product{}
     total := int32(0)
     
-    result, _ := repository.db.Query(ctx, "SELECT * FROM product")
+    result, err := repository.db.Query(ctx, "SELECT * FROM product")
+    if err != nil {
+        return nil, err
+    }
 
     for result.Next() {
         var product domain.Product
